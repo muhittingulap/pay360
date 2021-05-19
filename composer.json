@@ -1,0 +1,28 @@
+{
+    "name": "muhittingulap/pay360",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/muhittingulap/pay360",
+    "keywords": ["pay360", "php","api"],
+    "description": "PHP OOP Pay360 integration",
+    "autoload": {
+      "psr-4": {
+        "PAY360\\": "src"
+      }
+    },
+    "autoload-dev": {
+      "psr-4": {
+        "PAY360\\": "src"
+      }
+    },   
+    "authors": [
+      {
+        "name": "Muhittin GÜLAP",
+        "email": "gulapmuhittin@gmail.com",
+        "role": "Developer"
+      }
+    ],
+    "require": {
+      "php": "^7.0"
+    }
+  }

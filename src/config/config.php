@@ -14,6 +14,7 @@ class config {
     private $prod_url="https://api.pay360.com/acceptor/rest/";
     private $test_url="https://api.mite.pay360.com/acceptor/rest/";
 
+    protected $cussomerPrefix="CUS-"; // customer prefix
     protected $type=0; // test or prod
     protected $integrationMethod=0; // 0: Hosted Cashier 1: Cashier API
     protected $method=''; // POST or GET

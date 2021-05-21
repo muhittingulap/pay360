@@ -25,7 +25,7 @@ PHP OOP Pay360 Api integration
     <?php     
     include('vendor/autoload.php');
 ```  
-# Config
+**Config:**
 
 | Parametre        | Açıklama |
 | username         | API Username (pay360 Information contained in the mail sent by) |

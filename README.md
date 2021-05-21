@@ -25,3 +25,11 @@ PHP OOP Pay360 Api integration
     <?php     
     include('vendor/autoload.php');
 ```  
+# Config
+
+| Parametre        | Açıklama |
+| username         | API Username (pay360 Information contained in the mail sent by) |
+| password         | API Password (pay360 Information contained in the mail sent by) |
+| cardLockId       | CardLock ID (pay360 Information contained in the mail sent by) |
+| hostedCashierId  | Installations Hosted Cashier (pay360 Information contained in the mail sent by) |
+| cashierId        | Installations Cashier API (pay360 Information contained in the mail sent by) |

@@ -10,7 +10,7 @@
   <a href="https://packagist.org/packages/muhittingulap/pay360"><img src="https://poser.pugx.org/muhittingulap/pay360/license.svg" alt="License"></a>
 </p>
 
-# Get Started
+## Get Started
 PHP OOP Pay360 Api integration
 
 ## Documentation (pay360)
@@ -25,7 +25,7 @@ PHP OOP Pay360 Api integration
     <?php     
     include('vendor/autoload.php');
 ```  
-**Config:**
+## Config
 
 | Parametre        | Açıklama |
 | ---------------- | -------- |

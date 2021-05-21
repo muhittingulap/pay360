@@ -14,9 +14,10 @@ class config {
     private $prod_url="https://api.pay360.com/acceptor/rest/";
     private $test_url="https://api.mite.pay360.com/acceptor/rest/";
 
-    protected $type=0;
-    protected $method=0;
-    protected $json=array();
+    protected $type=0; // test or prod
+    protected $integrationMethod=0; // 0: Hosted Cashier 1: Cashier API
+    protected $method=''; // POST or GET
+    protected $post_data=array(); // POST array data
 
     public function getUrl(){
         return $this->{($type==0?'test':'prod')}.'_url';
@@ -46,7 +47,7 @@ class config {
             CURLOPT_HTTPHEADER => $this->getHeaders();
         );         
 
-        if($this->method=="POST") $array["CURLOPT_POSTFIELDS"] = json_encode($this->json);
+        if($this->method=="POST") $array["CURLOPT_POSTFIELDS"] = json_encode($this->post_data);
 
         $curl = curl_init();
 

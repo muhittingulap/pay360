@@ -17,7 +17,10 @@ class transactions extends config{
                           ->setMethod("POST")
                           ->call();
         } catch (Exception $e) {
-          
+            $return=array(
+                "status"=> false,
+                "data"=>$e
+            )
         } 
 
         return $return;

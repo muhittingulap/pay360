@@ -18,8 +18,10 @@ class config {
     private $integrationMethod=0; // 0: Hosted Cashier 1: Cashier API
     private $cussomerPrefix="CUST-"; // customer prefix
     private $post_data=array(); // POST array data
+
+    private $callMethod="transactions"; // customers or transactions
     private $method=""; // POST or GET
-    private $url_ek=""; // örn: verify,resume or byRef
+    private $url_ex=""; // örn: verify,resume or byRef
 
     public function __construct()
     {
@@ -75,20 +77,26 @@ class config {
         return $this;
     }
 
+    protected function setCallMethod($data="")
+    {
+        $this->callMethod=(string)$data;
+        return $this;
+    }
+
     protected function setMethod($data="POST")
     {
         $this->method=(string)$data;
         return $this;
     }
 
-    protected function setUrlEk($data="")
+    protected function setUrlEx($data="")
     {
-        $this->url_ek=(string)$data;
+        $this->url_ex=(string)$data;
         return $this;
     }
 
     private function getUrl(){
-        return $this->{($this->type==0?'test':'prod')'_url'}.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ek;
+        return $this->{($this->type==0?'test':'prod')'_url'}.$this->callMethod.'/'.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ex;
     }
 
     private function getHeaders(){        

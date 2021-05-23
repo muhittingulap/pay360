@@ -15,7 +15,8 @@ class transactions extends config{
       
         try{
             
-            $return= $this->setUrlEk(__FUNCTION__)
+            $return= $this->setCallMethod("transactions")
+                          ->setUrlEx(__FUNCTION__)
                           ->setMethod("POST")
                           ->call();
 

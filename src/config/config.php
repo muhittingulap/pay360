@@ -133,7 +133,7 @@ class config {
           );
         }else{
             $return=array(
-                "status" => 0,
+                "status" => 1,
                 "data" => json_decode($response, true),
             );
         }

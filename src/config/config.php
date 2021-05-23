@@ -21,14 +21,28 @@ class config {
     private $method=''; // POST or GET
     private $url_ek=""; // örn: verify,resume or byRef
 
-    public function setConfig($data=array())
-    {
-        $this->username=$data["username"];
-        $this->password=$data["password"];
-        $this->cardLockId=$data["cardLockId"];
-        $this->hostedCashierId=$data["hostedCashierId"];
-        $this->cashierId=$data["cashierId"];
-        
+    public function setUsername($data=""){
+        $this->username=(string)$data;
+        return $this;
+    }
+
+    public function setPassword($data=""){
+        $this->password=(string)$data;
+        return $this;
+    }
+
+    public function setCardLockId($data=""){
+        $this->cardLockId=(string)$data;
+        return $this;
+    }
+
+    public function setHostedCashierId($data=0){
+        $this->hostedCashierId=(int)$data;
+        return $this;
+    }
+
+    public function setCashierId($data=0){
+        $this->cashierId=(int)$data;
         return $this;
     }
 

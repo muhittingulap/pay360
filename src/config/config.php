@@ -21,6 +21,17 @@ class config {
     private $method=''; // POST or GET
     private $url_ek=""; // örn: verify,resume or byRef
 
+    public function setConfig($data=array())
+    {
+        $this->username=$data["username"];
+        $this->password=$data["password"];
+        $this->cardLockId=$data["cardLockId"];
+        $this->hostedCashierId=$data["hostedCashierId"];
+        $this->cashierId=$data["cashierId"];
+        
+        return $this;
+    }
+
     public function setType($data=0)
     {
         $this->type=(int)$data;

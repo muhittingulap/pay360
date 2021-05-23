@@ -37,4 +37,10 @@ PHP OOP Pay360 Api integration
 
 ## Transaction Methods
 
-#### Verify
+#### - Verify
+#### - Payment
+
+## Customers Methods
+
+#### - Payment Method Remove
+

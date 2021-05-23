@@ -23,9 +23,22 @@ class config {
     private $method=""; // POST or GET
     private $url_ex=""; // örn: verify,resume or byRef
 
+    protected $customerId=0; // pay360 customer Id
+    protected $cardToken=""; // pay360 registered card token
+
     public function __construct()
     {
 
+    }
+
+    public function setCardToken($data=""){
+        $this->cardToken=(string)$data;
+        return $this;
+    }
+
+    public function setCustomerId($data=0){
+        $this->customerId=(int)$data;
+        return $this;
     }
 
     public function setUsername($data=""){
@@ -96,7 +109,7 @@ class config {
     }
 
     private function getUrl(){
-        return $this->{($this->type==0?'test':'prod')'_url'}.$this->callMethod.'/'.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ex;
+        return $this->{($this->type==0?'test':'prod').'_url'}.$this->callMethod.'/'.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ex;
     }
 
     private function getHeaders(){        

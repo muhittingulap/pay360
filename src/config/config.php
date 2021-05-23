@@ -18,8 +18,13 @@ class config {
     private $integrationMethod=0; // 0: Hosted Cashier 1: Cashier API
     private $cussomerPrefix="CUST-"; // customer prefix
     private $post_data=array(); // POST array data
-    private $method=''; // POST or GET
+    private $method=""; // POST or GET
     private $url_ek=""; // örn: verify,resume or byRef
+
+    public function __construct()
+    {
+        
+    }
 
     public function setUsername($data=""){
         $this->username=(string)$data;
@@ -107,14 +112,14 @@ class config {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => $this->method,
-            CURLOPT_HTTPHEADER => $this->getHeaders();
+            CURLOPT_HTTPHEADER => $this->getHeaders(),
         );         
 
         if($this->method=="POST") $array["CURLOPT_POSTFIELDS"] = json_encode($this->post_data);
 
         $curl = curl_init();
 
-        curl_setopt_array($curl, $array));    
+        curl_setopt_array($curl, $array);    
 
         $response = curl_exec($curl);
         

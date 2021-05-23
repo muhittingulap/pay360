@@ -115,7 +115,7 @@ class config {
             CURLOPT_HTTPHEADER => $this->getHeaders(),
         );         
 
-        if($this->method=="POST") $array["CURLOPT_POSTFIELDS"] = json_encode($this->post_data);
+        if($this->method=="POST") $array[CURLOPT_POSTFIELDS] = json_encode($this->post_data);
 
         $curl = curl_init();
 

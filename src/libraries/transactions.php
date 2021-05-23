@@ -23,10 +23,13 @@ class transactions extends config{
         } catch (Exception $e) {
 
             $return=array(
-                "outcome"=> array(
-                    "status" => "FAILED",
-                    "reasonCode" => 'E0',
-                    "reasonMessage" => $e->getMessage(),
+                "status" => 0,
+                "data" => array(
+                    "outcome"=> array(
+                        "status" => "FAILED",
+                        "reasonCode" => 'E0',
+                        "reasonMessage" => $e->getMessage(),
+                    ),
                 ),
             );
 

@@ -2,7 +2,7 @@
 
 namespace PAY360\Libraries;
 
-use PAY360\Config\config;
+use PAY360\config\config;
 
 class customers extends config{
   

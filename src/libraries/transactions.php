@@ -10,5 +10,17 @@ class transactions extends config{
     {
         parent::__construct();
     }
+
+    public function verify()){
+        try{
+            $return= $this->setUrlEk(__FUNCTION__)
+                          ->setMethod("POST")
+                          ->call();
+        } catch (Exception $e) {
+          
+        } 
+
+        return $return;
+    }
     
 }

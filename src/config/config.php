@@ -14,17 +14,54 @@ class config {
     private $prod_url="https://api.pay360.com/acceptor/rest/";
     private $test_url="https://api.mite.pay360.com/acceptor/rest/";
 
-    protected $cussomerPrefix="CUS-"; // customer prefix
-    protected $type=0; // test or prod
-    protected $integrationMethod=0; // 0: Hosted Cashier 1: Cashier API
-    protected $method=''; // POST or GET
-    protected $post_data=array(); // POST array data
+    private $type=0; // test or prod
+    private $integrationMethod=0; // 0: Hosted Cashier 1: Cashier API
+    private $cussomerPrefix="CUST-"; // customer prefix
+    private $post_data=array(); // POST array data
+    private $method=''; // POST or GET
+    private $url_ek=""; // örn: verify,resume or byRef
 
-    public function getUrl(){
-        return $this->{($type==0?'test':'prod')}.'_url';
+    public function setType($data=0)
+    {
+        $this->type=(int)$data;
+        return $this;
     }
 
-    public function getHeaders(){        
+    public function setIntegrationMethod($data=0)
+    {
+        $this->integrationMethod=(int)$data;
+        return $this;
+    }
+
+    public function setCussomerPrefix($data="CUST-")
+    {
+        $this->cussomerPrefix=(string)$data;
+        return $this;
+    }
+
+    public function setPostData($data=array())
+    {
+        $this->post_data=(array)$data;
+        return $this;
+    }
+
+    protected function setMethod($data="POST")
+    {
+        $this->method=(string)$data;
+        return $this;
+    }
+
+    protected function setUrlEk($data="")
+    {
+        $this->url_ek=(string)$data;
+        return $this;
+    }
+
+    private function getUrl(){
+        return $this->{($type==0?'test':'prod')}.'_url'.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ek;
+    }
+
+    private function getHeaders(){        
 
         $basic_auth=base64_encode($this->username.':'.$this->password);
 
@@ -34,7 +71,7 @@ class config {
         );
     }
 
-    public function call(){
+    protected function call(){
 
         $array=array(
             CURLOPT_URL => $this->getUrl(),

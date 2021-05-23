@@ -88,7 +88,7 @@ class config {
     }
 
     private function getUrl(){
-        return $this->{($type==0?'test':'prod')'_url'}.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ek;
+        return $this->{($this->type==0?'test':'prod')'_url'}.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ek;
     }
 
     private function getHeaders(){        

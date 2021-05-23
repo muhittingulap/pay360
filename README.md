@@ -34,3 +34,7 @@ PHP OOP Pay360 Api integration
 | cardLockId       | CardLock ID (pay360 Information contained in the mail sent by) |
 | hostedCashierId  | Installations Hosted Cashier (pay360 Information contained in the mail sent by) |
 | cashierId        | Installations Cashier API (pay360 Information contained in the mail sent by) |
+
+## Transaction Methods
+
+#### Verify

@@ -22,8 +22,12 @@ PHP OOP Pay360 Api integration
  
 ## Using in your project
 ```php
+
     <?php     
     include('vendor/autoload.php');
+
+    $payService = new \PAY360\libraries\transactions();
+
 ```  
 ## Config
 
@@ -34,13 +38,49 @@ PHP OOP Pay360 Api integration
 | cardLockId       | CardLock ID (pay360 Information contained in the mail sent by) |
 | hostedCashierId  | Installations Hosted Cashier (pay360 Information contained in the mail sent by) |
 | cashierId        | Installations Cashier API (pay360 Information contained in the mail sent by) |
+| type             | 0: Test 1: Prod |
 
+## Use
+
+```php
+
+  <?php 
+  $payService->setUsername()
+      ->setPassword()
+      ->setCardLockId()
+      ->setHostedCashierId()
+      ->setType(); // 0:test 1:prod
+
+```  
 ## Transaction Methods
 
 #### - Verify
+
+```php
+
+  <?php 
+  $payService->setPostData($p_data) // $p_data -> array data
+             ->verify();
+
+```  
 #### - Payment
 
+```php
+
+  <?php 
+  $payService->setPostData($p_data) // $p_data -> array data
+             ->payment();
+
+```  
 ## Customers Methods
 
 #### - Payment Method Remove
 
+```php
+
+  <?php 
+  $payService->setCardToken()// pa360 card token
+             ->setCustomerId() // pa360 customer Id
+             ->paymentMethodRemove();
+
+```  

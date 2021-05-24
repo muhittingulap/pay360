@@ -27,6 +27,7 @@ PHP OOP Pay360 Api integration
     include('vendor/autoload.php');
 
     $payService = new \PAY360\libraries\transactions();
+    $custService = new \PAY360\libraries\customers();
 
 ```  
 ## Config
@@ -46,10 +47,10 @@ PHP OOP Pay360 Api integration
 
   <?php 
   $payService->setUsername()
-      ->setPassword()
-      ->setCardLockId()
-      ->setHostedCashierId()
-      ->setType(); // 0:test 1:prod
+             ->setPassword()
+             ->setCardLockId()
+             ->setHostedCashierId()
+             ->setType(); // 0:test 1:prod
 
 ```  
 ## Transaction Methods
@@ -79,8 +80,8 @@ PHP OOP Pay360 Api integration
 ```php
 
   <?php 
-  $payService->setCardToken()// pa360 card token
-             ->setCustomerId() // pa360 customer Id
-             ->paymentMethodRemove();
+  $custService->setCardToken()// pa360 card token
+              ->setCustomerId() // pa360 customer Id
+              ->paymentMethodRemove();
 
 ```  

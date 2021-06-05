@@ -32,7 +32,7 @@ PHP OOP Pay360 Api integration
 ```  
 ## Config
 
-| Parametre        | Açıklama |
+| Parametre        | Detail |
 | ---------------- | -------- |
 | username         | API Username (pay360 Information contained in the mail sent by) |
 | password         | API Password (pay360 Information contained in the mail sent by) |

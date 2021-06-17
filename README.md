@@ -73,6 +73,14 @@ PHP OOP Pay360 Api integration
              ->payment();
 
 ```  
+#### - 3D Resume
+
+```php
+
+  <?php 
+  $return=$payService->resume(); // return data
+
+```  
 ## Customers Methods
 
 #### - Payment Method Remove

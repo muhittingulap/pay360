@@ -25,6 +25,7 @@ class config {
 
     protected $customerId=0; // pay360 customer Id
     protected $cardToken=""; // pay360 registered card token
+    protected $transactionId=0; // transactionId 
 
     public function __construct()
     {
@@ -108,8 +109,14 @@ class config {
         return $this;
     }
 
+    public function setTransactionId($data=0)
+    {
+        $this->transactionId=(int)$data;
+        return $this;
+    }
+
     private function getUrl(){
-        return $this->{($this->type==0?'test':'prod').'_url'}.$this->callMethod.'/'.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').$this->url_ex;
+        return $this->{($this->type==0?'test':'prod').'_url'}.$this->callMethod.'/'.($this->integrationMethod==0?$this->hostedCashierId.'/':$this->cashierId.'/').($this->transactionId!=0?$this->transactionId.'/':'').$this->url_ex;
     }
 
     private function getHeaders(){        

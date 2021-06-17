@@ -63,6 +63,33 @@ class transactions extends config{
         } 
 
         return $return;
+    }    
+    
+    public function resume(){
+      
+        try{
+            
+            $return= $this->setCallMethod("transactions")
+                          ->setUrlEx(__FUNCTION__)
+                          ->setMethod("POST")
+                          ->call();
+
+        } catch (Exception $e) {
+
+            $return=array(
+                "status" => 0,
+                "data" => array(
+                    "outcome"=> array(
+                        "status" => "FAILED",
+                        "reasonCode" => 'E0',
+                        "reasonMessage" => $e->getMessage(),
+                    ),
+                ),
+            );
+
+        } 
+
+        return $return;
     }
     
 }

@@ -19,7 +19,7 @@ class customers extends config{
                           ->setMethod("POST")
                           ->call();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             $return=array(
                 "status" => 0,

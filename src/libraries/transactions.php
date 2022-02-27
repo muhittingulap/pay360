@@ -20,7 +20,7 @@ class transactions extends config{
                           ->setMethod("POST")
                           ->call();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             $return=array(
                 "status" => 0,
@@ -47,7 +47,7 @@ class transactions extends config{
                           ->setMethod("POST")
                           ->call();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
 
             $return=array(
                 "status" => 0,
@@ -74,7 +74,34 @@ class transactions extends config{
                           ->setMethod("POST")
                           ->call();
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
+
+            $return=array(
+                "status" => 0,
+                "data" => array(
+                    "outcome"=> array(
+                        "status" => "FAILED",
+                        "reasonCode" => 'E0',
+                        "reasonMessage" => $e->getMessage(),
+                    ),
+                ),
+            );
+
+        } 
+
+        return $return;
+    }
+    
+    public function refund(){
+      
+        try{
+            
+            $return= $this->setCallMethod("transactions")
+                          ->setUrlEx(__FUNCTION__)
+                          ->setMethod("POST")
+                          ->call();
+
+        } catch (\Exception $e) {
 
             $return=array(
                 "status" => 0,

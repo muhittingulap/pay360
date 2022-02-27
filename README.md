@@ -60,7 +60,7 @@ PHP OOP Pay360 Api integration
 ```php
 
   <?php 
-  $payService->setPostData($p_data) // $p_data -> array data
+  $payService->setPostData($p_data) // $p_data -> array data -> review documents
              ->verify();
 
 ```  
@@ -69,7 +69,7 @@ PHP OOP Pay360 Api integration
 ```php
 
   <?php 
-  $payService->setPostData($p_data) // $p_data -> array data
+  $payService->setPostData($p_data) // $p_data -> array data -> review documents
              ->payment();
 
 ```  
@@ -78,7 +78,16 @@ PHP OOP Pay360 Api integration
 ```php
 
   <?php 
-  $return=$payService->resume(); // return data
+  $return=$payService->resume(); // return data -> review documents
+
+```  
+#### - Refund
+
+```php
+
+  <?php 
+   $payService->setPostData($p_data) // $p_data -> array data -> full refund or partial refund -> review documents
+             ->refund();
 
 ```  
 ## Customers Methods
